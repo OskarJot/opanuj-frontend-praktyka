@@ -4,25 +4,17 @@ function validator() {
   const button2 = document.getElementById('button2');
   const result = document.getElementById('result');
 
+  const CHECK_NUMBER = Number(input.value);
+  const MSG_VALID = 'Valid';
+  const MSG_INVALID = 'Invalid';
+
   button.addEventListener('click', () => {
-    if (input.value) {
-      if (Number.isInteger(input.value)) {
-        if (
-          Number(input.value) > 0 &&
-          Number(input.value) < 100 &&
-          Number(input.value) % 2 === 0
-        ) {
-          result.innerHTML = 'Valid';
+
+    if (CHECK_NUMBER % 2 === 0 && CHECK_NUMBER > 0 && CHECK_NUMBER < 100) {
+          result.innerHTML = MSG_VALID;
         } else {
-          result.innerHTML = 'Invalid';
+          result.innerHTML = MSG_INVALID;
         }
-        result.innerHTML = 'Valid';
-      } else {
-        result.innerHTML = 'Invalid';
-      }
-    } else {
-      result.innerHTML = 'Invalid';
-    }
   });
 
   button2.addEventListener('click', () => {
